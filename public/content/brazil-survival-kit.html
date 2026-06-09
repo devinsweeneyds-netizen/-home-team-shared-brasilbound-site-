@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brazil Survival Kit - BrasilBound</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --amazon-green: #1B6B4A;
+            --copacabana-gold: #F4A81D;
+            --deep-atlantic-blue: #0D47A1;
+            --sandstone-beige: #F5EDE0;
+            --ipanema-sand: #FFF8F0;
+            --charcoal: #2C2C2C;
+            --stone: #6B7280;
+            --cloud: #E5E7EB;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            background-color: var(--ipanema-sand);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-top: 12px solid var(--amazon-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, transparent 50%, var(--copacabana-gold) 50%);
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            max-width: 220px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--amazon-green);
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--deep-atlantic-blue);
+            margin-top: 5px;
+            font-size: 1.1rem;
+        }
+
+        .subtitle {
+            color: var(--stone);
+            font-size: 0.95rem;
+            margin-top: 10px;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--amazon-green);
+            border-bottom: 2px solid var(--copacabana-gold);
+            padding-bottom: 5px;
+            margin-top: 25px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        h2 span {
+            margin-right: 12px;
+            font-size: 1.2em;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px 20px;
+        }
+
+        /* Span single items across both columns if needed */
+        li.wide {
+            grid-column: span 2;
+        }
+
+        li {
+            margin-bottom: 8px;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--amazon-green);
+            border-radius: 4px;
+        }
+
+        strong {
+            color: var(--amazon-green);
+            font-weight: 500;
+        }
+
+        .tip-box {
+            background-color: var(--sandstone-beige);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 6px solid var(--copacabana-gold);
+            margin-top: 30px;
+            font-size: 0.9rem;
+        }
+
+        .tip-box h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-top: 0;
+            color: var(--amazon-green);
+            font-size: 1.1rem;
+        }
+
+        .emergency-grid {
+            grid-column: span 2;
+            background: #f8fafc;
+            border: 1px solid var(--cloud);
+            padding: 12px;
+            border-radius: 6px;
+            margin-top: 5px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            font-size: 0.85rem;
+        }
+
+        .emergency-item b {
+            color: #d32f2f;
+        }
+
+        .phrase-grid {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            background: var(--ipanema-sand);
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .phrase-item i {
+            color: var(--stone);
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--stone);
+            border-top: 1px solid var(--cloud);
+            padding-top: 20px;
+        }
+
+        .website-link {
+            font-weight: 700;
+            color: var(--deep-atlantic-blue);
+            text-decoration: none;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background-color: white;
+            }
+            .container {
+                box-shadow: none;
+                max-width: 100%;
+                margin: 0;
+                padding: 10px;
+                border-top: 6px solid var(--amazon-green);
+            }
+            .container::before {
+                display: none;
+            }
+            ul {
+                grid-template-columns: 1fr 1fr;
+            }
+            .tip-box {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <!-- Logo placeholder - Web dev will replace src with actual assets path -->
+        <img src="../design/brasilbound-logo-full.png" alt="BrasilBound Logo" class="logo">
+        <h1>Brazil Survival Kit</h1>
+        <p class="tagline">Navigate Brazil with Confidence</p>
+        <p class="subtitle">The essential one-page checklist for American travelers.</p>
+    </header>
+
+    <section>
+        <h2><span>🛂</span> 1. Documents & Entry</h2>
+        <ul>
+            <li><strong>Passport Validity</strong>: 6+ months from entry date.</li>
+            <li><strong>Blank Pages</strong>: 1-2 empty "Visa" pages.</li>
+            <li class="wide"><strong>Visa Status</strong>: Exemption until April 10, 2025. After that, carry your printed <strong>e-Visa</strong> ($80.90).</li>
+            <li><strong>Onward Travel</strong>: Printed flight confirmation.</li>
+            <li><strong>Insurance</strong>: Policy with Medical Evacuation.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><span>🛡️</span> 2. Health & Safety</h2>
+        <ul>
+            <li class="wide"><strong>The "Golden Rule"</strong>: <em>Não Dê Bobeira</em>. Keep your phone hidden; step into a shop to use it.</li>
+            <li><strong>Street Smart</strong>: No expensive jewelry or watches.</li>
+            <li><strong>Water</strong>: Bottled/Filtered only. No tap water.</li>
+            <li><strong>Repellent</strong>: 25% DEET for Dengue/Zika.</li>
+            <li><strong>Vaccines</strong>: Yellow Fever (10 days prior).</li>
+            <li class="wide"><strong>Emergency Numbers</strong>:
+                <div class="emergency-grid">
+                    <div class="emergency-item"><b>190</b>: Police</div>
+                    <div class="emergency-item"><b>192</b>: Ambulance</div>
+                    <div class="emergency-item"><b>193</b>: Fire</div>
+                    <div class="emergency-item" style="grid-column: span 3; margin-top: 5px;">
+                        US Embassy (BSB): +55 (61) 3312-7000<br>
+                        US Consulate (Rio): +55 (21) 3823-2000
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><span>💰</span> 3. Money & Payments</h2>
+        <ul>
+            <li><strong>Notify Bank</strong>: Set travel notice for Brazil.</li>
+            <li><strong>Cards</strong>: Visa/MC with Tap-to-Pay.</li>
+            <li><strong>The PIX Gap</strong>: Carry R$2, 5, 10 bills for change.</li>
+            <li><strong>Secure ATMs</strong>: Inside bank branches only.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><span>📱</span> 4. Communication & Tech</h2>
+        <ul>
+            <li><strong>WhatsApp</strong>: Verify before you leave US.</li>
+            <li><strong>eSIM</strong>: Buy data plan (Airalo/Holafly) early.</li>
+            <li><strong>Power</strong>: <strong>Type N</strong> adapter (3 round pins).</li>
+            <li><strong>VPN</strong>: Essential for public/hotel WiFi.</li>
+            <li class="wide"><strong>Key Phrases</strong>:
+                <div class="phrase-grid">
+                    <div class="phrase-item">Tudo bem? <i>(How's it going?)</i></div>
+                    <div class="phrase-item">Obrigado/a <i>(Thank you)</i></div>
+                    <div class="phrase-item">A conta, por favor <i>(The bill)</i></div>
+                    <div class="phrase-item">Aceita cartão? <i>(Accept card?)</i></div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2><span>📦</span> 5. Packing Must-Haves</h2>
+        <ul>
+            <li><strong>Sunscreen</strong>: Pack double (expensive in BR).</li>
+            <li><strong>Light Fabrics</strong>: Linen/Cotton only.</li>
+            <li><strong>Rain Gear</strong>: Compact umbrella/poncho.</li>
+            <li><strong>Power Bank</strong>: For high GPS usage.</li>
+        </ul>
+    </section>
+
+    <div class="tip-box">
+        <h3>💡 Pro Tip: The "Jeitinho Brasileiro"</h3>
+        <p>If you hit a roadblock, a smile and a polite "Could we find a way?" goes far. Brazilians value personal connection and creativity in problem-solving.</p>
+    </div>
+
+    <footer>
+        <p>Navigate Brazil with Confidence — <a href="https://brasilbound.com" class="website-link">BrasilBound.com</a></p>
+        <p>© 2024 BrasilBound. All rights reserved.</p>
+    </footer>
+</div>
+
+</body>
+</html>
